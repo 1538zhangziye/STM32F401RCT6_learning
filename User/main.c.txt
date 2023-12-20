@@ -1,0 +1,26 @@
+#include "stm32f4xx.h" // Device header
+
+void Delay(uint32_t nCount)
+{
+	for (; nCount != 0; nCount--)
+		;
+}
+
+int main(void)
+{
+    GPIO_InitTypeDef GPIO_InitStructure;
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+    GPIO_Init(GPIOC, &GPIO_InitStructure);
+    while (1)
+    {
+        GPIO_SetBits(GPIOC, GPIO_Pin_13);
+        Delay(0xFFFFF);
+		Delay(0xFFFFF);
+        GPIO_ResetBits(GPIOC, GPIO_Pin_13);
+        Delay(0xFFFFF);
+		Delay(0xFFFFF);
+    }
+}
