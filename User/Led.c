@@ -1,5 +1,8 @@
 #include "stm32f4xx.h" // Device header
 
+#define LED_PORT    GPIOA
+#define LED_PIN_1   GPIO_Pin_3
+
 void Led_Init()
 {
     GPIO_InitTypeDef GPIO_InitStructure;
