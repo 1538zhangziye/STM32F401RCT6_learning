@@ -869,6 +869,36 @@
               <FileType>5</FileType>
               <FilePath>.\User\main.c.txt</FilePath>
             </File>
+            <File>
+              <FileName>Key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\Key.c</FilePath>
+            </File>
+            <File>
+              <FileName>Key.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\User\Key.h</FilePath>
+            </File>
+            <File>
+              <FileName>Led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\Led.c</FilePath>
+            </File>
+            <File>
+              <FileName>Led.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\User\Led.h</FilePath>
+            </File>
+            <File>
+              <FileName>CountSensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\CountSensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>CountSensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\User\CountSensor.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
