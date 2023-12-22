@@ -468,7 +468,7 @@ typedef enum IRQn
   LPTIM1_IRQn                 = 97      /*!< LPTIM1 interrupt                                                  */
 #endif /* STM32F410xx */
    
-#if defined(STM32F401xx) || defined(STM32F411xE)
+#if defined(STM32F401xx) || defined(STM32F411xE)    //EXTI9_5_IRQn EXTI15_10_IRQn 是合并的
   EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
   TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 global interrupt                    */
   TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 global interrupt                  */

@@ -4,6 +4,9 @@
 #include "Key.h"
 #include "Led.h"
 #include "CountSensor.h"
+#include "Timer.h"
+RCC_ClocksTypeDef get_rcc_clock;
+uint16_t Num = 0;
 
 void begin()
 {
@@ -12,12 +15,8 @@ void begin()
     Key_Init();
     Led_Init();
     CountSensor_Init();
-
-    RCC_ClocksTypeDef get_rcc_clock;
+    Timer_Init();
     RCC_GetClocksFreq(&get_rcc_clock);
-    OLED_ShowString(1, 3, "Freq");
-    OLED_ShowNum(1, 8, get_rcc_clock.SYSCLK_Frequency / 1000000, 3);
-    OLED_ShowString(1, 11, "MHz");
     OLED_ShowString(2, 3, "Count");
     OLED_ShowString(3, 3, "Button 1");
     OLED_ShowString(4, 3, "Button 2");
@@ -33,20 +32,41 @@ int main(void)
         uint8_t state1 = Key_state1();
         uint8_t state2 = Key_state2();
         OLED_ShowNum(2, 10, CountSensor_GetCount(), 4);
+        if (Num % 7  == 0)
+        {
+            OLED_ShowString(1, 3, "Freq");
+            OLED_ShowNum(1, 8, get_rcc_clock.SYSCLK_Frequency / 1e6, 3);
+            OLED_ShowString(1, 11, "MHz");
+        }
+        else
+        {
+            OLED_ShowString(1, 3, "Time   ");
+            OLED_ShowNum(1, 10, Num, 4);
+        }
         if (state1 == 1 && state2 == 1)
             CountSensor_Reset();
         else
         {
             if (state1 == 2)
             {
-                Led_Reverse(GPIOA, GPIO_Pin_3);
+                Led_Reverse1();
                 OLED_ShowNum(3, 13, !GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_3), 1);
             }
             if (state2 == 2)
             {
-                Led_Reverse(GPIOA, GPIO_Pin_4);
+                Led_Reverse2();
                 OLED_ShowNum(4, 13, !GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_4), 1);
             }
         }
+    }
+}
+
+void TIM2_IRQHandler()
+{
+    if (TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
+    {
+        TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
+        // OLED_ShowNum(1, 14, Num, 3);
+        Num++;
     }
 }
