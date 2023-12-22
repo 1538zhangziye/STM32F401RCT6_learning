@@ -39,12 +39,12 @@ int main(void)
         {
             if (state1 == 2)
             {
-                Led_Reverse(GPIOA, GPIO_Pin_3);
+                Led_Reverse1();
                 OLED_ShowNum(3, 13, !GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_3), 1);
             }
             if (state2 == 2)
             {
-                Led_Reverse(GPIOA, GPIO_Pin_4);
+                Led_Reverse2();
                 OLED_ShowNum(4, 13, !GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_4), 1);
             }
         }
