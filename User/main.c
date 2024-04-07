@@ -21,6 +21,7 @@ void begin()
     RCC_ClocksTypeDef get_rcc_clock;
     RCC_GetClocksFreq(&get_rcc_clock);
     sysFreq = get_rcc_clock.SYSCLK_Frequency;
+    OLED_ShowNum(1, startColumn + 13, TimerETR_GetCount(), 3);
     OLED_ShowString(2, startColumn, "Count");
     OLED_ShowString(3, startColumn, "Button 1");
     OLED_ShowString(4, startColumn, "Button 2");
@@ -40,8 +41,8 @@ int main(void)
         if (Timer_GetCount() % 7 == 0)
         {
             OLED_ShowString(1, startColumn, "Freq");
-            OLED_ShowNum(1, startColumn + 5, sysFreq / 1e6, 3);
-            OLED_ShowString(1, startColumn + 8, "MHz");
+            OLED_ShowNum(1, startColumn + 7, sysFreq / 1e6, 4);
+            OLED_ShowString(1, startColumn + 13, "MHz");
         }
         else
         {
