@@ -909,6 +909,16 @@
               <FileType>5</FileType>
               <FilePath>.\User\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>TimerETR.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\TimerETR.c</FilePath>
+            </File>
+            <File>
+              <FileName>TimerETR.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\User\TimerETR.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

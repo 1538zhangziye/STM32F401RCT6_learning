@@ -436,7 +436,6 @@
 
 #if defined(STM32F401xx)
   uint32_t SystemCoreClock = PLL_N / PLL_P * HSE_VALUE / PLL_M;
-  //uint32_t SystemCoreClock = 135000000;
 #endif /* STM32F401xx */
 
 #if defined(STM32F410xx) || defined(STM32F411xE) || defined(STM32F412xG) || defined(STM32F413_423xx)
