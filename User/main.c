@@ -17,7 +17,7 @@ void begin()
     Led_Init();
     CountSensor_Init();
     Timer_Init();
-	TimerETR_Init();
+    TimerETR_Init();
     RCC_ClocksTypeDef get_rcc_clock;
     RCC_GetClocksFreq(&get_rcc_clock);
     sysFreq = get_rcc_clock.SYSCLK_Frequency;
